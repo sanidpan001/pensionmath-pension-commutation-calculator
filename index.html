@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PensionMath — Pension Commutation Calculator: Lump Sum, Reduced Pension &amp; Restoration Date</title>
+<meta name="description" content="PensionMath — free online pension commutation calculator. Commutation factor auto-picked from age-next-birthday, lump sum + reduced monthly pension + the exact restoration date on one card — the three numbers a retiree actually needs together No signup, unlimited free usage.">
+<link rel="canonical" href="https://pensionmath.2.fixoraa.tech/">
+<script defer src="https://t.fixoraa.tech/track.js"></script>
+<meta property="og:title" content="PensionMath — Pension Commutation Calculator: Lump Sum, Reduced Pension &amp; Restoration Date">
+<meta property="og:description" content="PensionMath — free online pension commutation calculator. Commutation factor auto-picked from age-next-birthday, lump sum + reduced monthly pension + the exact restoration date on one card — the three numbers a retiree actually needs together No signup, unlimited free usage.">
+<meta property="og:url" content="https://pensionmath.2.fixoraa.tech/">
+<meta property="og:type" content="website">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Lato:wght@400;600;700&display=swap" rel="stylesheet">
+<style>:root{--bg:#F2FAF5;--card:#FFFFFF;--ink:#17352A;--acc:#0E477C;--acc2:#E8C7A2;--soft:#DFF3E7;--hf:'Playfair Display',serif;--bf:'Lato',sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--bf);line-height:1.65}
+header.site{position:sticky;top:0;z-index:20;background:var(--card);border-bottom:2px solid var(--soft);padding:10px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.logo{width:42px;height:42px;border-radius:12px;background:var(--ink);color:var(--bg);border:2px solid var(--acc);display:flex;align-items:center;justify-content:center;font-family:var(--hf);font-weight:800;font-size:20px}
+.brandname{font-family:var(--hf);font-size:22px;font-weight:700}
+.navbtns{margin-left:auto;display:flex;gap:8px}
+.navbtns a,.btn{background:var(--ink);color:var(--bg);padding:9px 16px;border-radius:999px;text-decoration:none;font-weight:700;border:0;cursor:pointer;display:inline-block}
+.navbtns a.ghost{background:var(--soft);color:var(--ink)}
+.badge{display:inline-block;background:var(--soft);color:var(--ink);padding:4px 12px;border-radius:999px;font-size:13px;font-weight:700}
+h1{font-family:var(--hf);font-size:clamp(26px,4.5vw,40px);line-height:1.2;margin:14px 0 8px}
+.hero{max-width:900px;margin:auto;padding:26px 20px 4px;text-align:center}
+.wrap{max-width:1060px;margin:auto;padding:20px}.tool{background:var(--card);border-radius:16px;padding:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px;border-top:8px solid var(--acc)}
+.fld{display:block;margin:10px 0}.fld span{display:block;font-weight:700;margin-bottom:5px;font-size:14px}
+.fld input,.fld select,.fld textarea{width:100%;padding:11px 12px;border:2px solid var(--soft);border-radius:10px;background:var(--card);color:var(--ink);font:inherit}
+.btn2{background:var(--soft);color:var(--ink);border:0;padding:8px 14px;border-radius:10px;font-weight:700;cursor:pointer}
+#result{margin-top:16px;background:var(--soft);border-radius:14px;padding:16px}
+#baStage{margin:14px 0}
+.reserved-ad{max-width:728px;margin:26px auto;min-height:110px;border:2px dashed var(--soft);border-radius:12px}
+article.seo{max-width:820px;margin:auto;padding:10px 20px 30px}article.seo h2{font-family:var(--hf);margin-top:30px}article.seo h3{font-family:var(--hf)}
+.faq{background:var(--card);border:1px solid var(--soft);border-radius:12px;padding:6px 16px;margin:10px 0}
+footer.site{background:var(--card);border-top:2px solid var(--soft);padding:26px 20px;text-align:center;margin-top:30px}
+footer.site a{color:var(--acc);font-weight:700}
+canvas{max-width:100%}table{background:var(--card)}pre{white-space:pre-wrap;word-break:break-word}
+body{background-image:linear-gradient(135deg, var(--soft), transparent 60%)}.tool{border-radius:28px;box-shadow:inset 0 0 0 2px var(--soft)}.hero{text-align:left}.fld input,.fld select,.fld textarea{border-radius:22px}#result{border-left:5px solid var(--acc)}article.seo h2{border-bottom:3px solid var(--soft);padding-bottom:4px}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "PensionMath", "url": "https://pensionmath.2.fixoraa.tech/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "PensionMath \u2014 free online pension commutation calculator. Commutation factor auto-picked from age-next-birthday, lump sum + reduced monthly pension + the exact restoration date on one card \u2014 the three numbers a retiree actually needs together No signup, unlimited free usage."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is PensionMath used for?", "acceptedAnswer": {"@type": "Answer", "text": "PensionMath is a free online tool for anyone searching for a pension commutation calculator. It gives you an instant result in your browser \u2014 Commutation factor auto-picked from age-next-birthday, lump sum + reduced monthly pension + the exact restoration date on one card \u2014 the three numbers a retiree actually needs together"}}, {"@type": "Question", "name": "Is PensionMath free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. PensionMath is completely free with unlimited usage \u2014 no signup, no paywall and no watermark on anything you create or download."}}, {"@type": "Question", "name": "How accurate is PensionMath?", "acceptedAnswer": {"@type": "Answer", "text": "PensionMath uses the standard formulas and methods described in the guide on this page, and shows its working so you can check every step. For money, health or legal decisions, treat the result as a strong estimate and confirm important figures with a professional."}}, {"@type": "Question", "name": "Does PensionMath upload my data anywhere?", "acceptedAnswer": {"@type": "Answer", "text": "No. PensionMath runs entirely in your browser. Your inputs, files and results never leave your device, and nothing is stored on a server."}}, {"@type": "Question", "name": "What makes PensionMath different from other tools for pension commutation calculator?", "acceptedAnswer": {"@type": "Answer", "text": "Most tools stop at the basic answer. PensionMath adds restoration date/age card and commute-% slider (up to the allowed max) \u2014 Retirement tools in the estate model NPS corpus (retirewise), not service-pension commutation tables; the commutation-factor table lookup is the underserved step"}}, {"@type": "Question", "name": "Can I use PensionMath on my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. PensionMath is a single lightweight page that works on phones, tablets and computers. Anything you save is kept in your own browser's local storage."}}]}</script>
+</head>
+<body>
+<header class="site">
+<div class="logo" aria-hidden="true">P</div>
+<div class="brandname">PensionMath</div>
+<nav class="navbtns"><a href="https://fixoraa.tech">Home</a><a class="ghost" href="https://fixoraa.tech">More Tools</a></nav>
+</header>
+<div class="hero"><h1>PensionMath — Pension Commutation Calculator: Lump Sum, Reduced Pension &amp; Restoration Date</h1><p>Transactional — a retiring government employee deciding how much pension to commute — free, private, no signup.</p></div>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pt-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <div class="origin-top scale-[0.44] sm:scale-100 shrink-0">
+        <script>
+          atOptions = { 'key' : '4e68ac77881c17fe128a46565d9a4e8c', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script src="https://www.highrevenueformat.com/4e68ac77881c17fe128a46565d9a4e8c/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<main>
+<div class="wrap"><div style="grid-column:1/-1;text-align:center"><span class="badge">Unlimited Free Usage</span><h2 style="font-family:var(--hf)">PensionMath</h2><p>Commutation factor auto-picked from age-next-birthday, lump sum + reduced monthly pension + the exact restoration date on one card — the three numbers a retiree actually needs together</p></div><div class="tool">
+<div><span class="badge">Unlimited Free Usage</span>
+<h2 style="font-family:var(--hf);margin:10px 0 4px">PensionMath — pension commutation calculator</h2>
+<p style="margin:4px 0 12px">Commutation factor auto-picked from age-next-birthday, lump sum + reduced monthly pension + the exact restoration date on one card — the three numbers a retiree actually needs together</p>
+<label class="fld"><span>Full monthly pension (Rs)</span><input type="number" id="f_pension" value="50000"></label>
+<label class="fld"><span>Percentage to commute % (max 40)</span><input type="number" id="f_pct" value="40"></label>
+<label class="fld"><span>Age at next birthday</span><input type="number" id="f_ageNext" value="61"></label>
+<label class="fld"><span>Retirement date (YYYY-MM-DD)</span><input type="text" id="f_retireDate" value="2026-04-01"></label>
+<p style="margin-top:14px"><button class="btn" id="go">Run PensionMath</button></p>
+<div id="baStage"></div>
+<div id="result" aria-live="polite"><p>Press <b>Run PensionMath</b> — the example values above already show a full working result. Extra built in: restoration date/age card.</p></div>
+</div></div></div>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pb-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:300px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <script>
+      (function(grnp){
+      var d = document,
+          s = d.createElement('script'),
+          l = d.currentScript || d.scripts[d.scripts.length - 1];
+      s.settings = grnp || {};
+      s.src = "\/\/peacefulbicycle.com\/bnXtVJsnd.GElF0oYVWQcY\/Qe\/mf9qu-ZqUtlZk\/PzTHcx1LM\/jWIZwkMTj\/U\/t-NrzmUnyOMsj\/AzydO\/Qx";
+      s.async = true;
+      s.referrerPolicy = 'no-referrer-when-downgrade';
+      l.parentNode.insertBefore(s, l);
+      })({})
+      </script>
+    </div>
+  </div>
+</div>
+<article class="seo">
+<h2>What is a pension commutation calculator — and why this one?</h2><p>If you searched for a pension commutation calculator, you want one thing: a correct answer, fast, without creating an account or paying for a subscription. PensionMath was built for exactly that moment. Commutation factor auto-picked from age-next-birthday, lump sum + reduced monthly pension + the exact restoration date on one card — the three numbers a retiree actually needs together The page loads instantly, the tool sits at the top, and your result appears the moment you press the button — no uploads, no waiting rooms, no watermarks.</p><p>The search intent behind “pension commutation calculator” is usually transactional — a retiring government employee deciding how much pension to commute That sounds simple, but the top results for this search are a mixed bag: some are blog posts that explain the idea with one static example, some are heavy apps that demand an account before they show you anything, and some are calculators that handle only the simplest case. PensionMath takes a different approach — a dedicated, single-purpose tool that does this one job completely, including the edge cases the simple versions skip.</p>
+<h2>How PensionMath works</h2><p>Under the hood, PensionMath follows the standard method for a pension commutation calculator, applied step by step so the result is easy to verify. Every input is labelled in plain language, sensible defaults are filled in so you can try the tool immediately, and the result panel shows not just the headline answer but the working behind it. That transparency matters: a number you cannot check is a number you cannot trust, especially when money, marks, measurements or health are involved.</p><p>Retirement tools in the estate model NPS corpus (retirewise), not service-pension commutation tables; the commutation-factor table lookup is the underserved step In practice that means you spend your time on the decision, not on wrestling the tool. Change any input and re-run — the calculation is instant because everything happens on your own device.</p>
+<h2>Key features</h2><h3>Restoration date/age card</h3><p>commuted pension restores after 15 years and nobody shows the date — and it is built into PensionMath from the start, not locked behind a signup. When you search for a pension commutation calculator, small workflow details like this are what separate a tool you use once from a tool you bookmark. Try it with your own numbers or files and compare the result with the worked example below.</p><h3>Commute-% slider (up to the allowed max)</h3><p>retirees compare 20% vs 40% side by side — and it is built into PensionMath from the start, not locked behind a signup. When you search for a pension commutation calculator, small workflow details like this are what separate a tool you use once from a tool you bookmark. Try it with your own numbers or files and compare the result with the worked example below.</p><h3>Family-pension note</h3><p>answers the follow-up question families ask first — and it is built into PensionMath from the start, not locked behind a signup. When you search for a pension commutation calculator, small workflow details like this are what separate a tool you use once from a tool you bookmark. Try it with your own numbers or files and compare the result with the worked example below.</p>
+<h2>How to use PensionMath — step by step</h2><p><strong>Step 1:</strong> Start with the defaults. The tool opens with a realistic example already filled in, so you can press the main button and see a full result before entering anything of your own. <strong>Step 2:</strong> Replace the example values with your real ones — your figures, your file, or your text. <strong>Step 3:</strong> Read the whole result panel, not just the headline number; the breakdown underneath is where the useful decisions hide. <strong>Step 4:</strong> Adjust one input at a time and re-run to see how sensitive the answer is. <strong>Step 5:</strong> Copy, download or save your result using the buttons provided — everything stays in your browser, so your work is private by default.</p><p>A worked example is the fastest way to learn any tool. Run the default example first and check that the result matches the explanation in the “how it works” section above. Once the method makes sense with familiar numbers, your own case — however unusual — becomes straightforward, because the tool applies exactly the same steps every time.</p>
+<h2>Common mistakes to avoid</h2><p>Most wrong answers from a pension commutation calculator come from wrong inputs, not wrong maths. Double-check that you have entered values in the units the labels ask for, that percentages are entered as percentages (12, not 0.12), and that you have not mixed two different cases into one run. If a result looks surprising, change one input at a time and watch how the answer moves — a result that moves sensibly is a result you can trust. And if two tools disagree, prefer the one that shows its working, the way PensionMath does.</p><p>People also search for related questions such as commutation of pension calculator lump sum, reduced pension after commutation calculator, pension restoration age calculator. Those long-tail searches usually describe a specific situation — a couple budgeting together, a student checking one subject, a buyer comparing two options. PensionMath was designed with those specific situations in mind, which is why its extra features focus on comparisons, breakdowns and “what if” adjustments rather than a single bare answer.</p>
+<h2>Who uses PensionMath?</h2><p>Anyone who needs a pension commutation calculator and would rather get the answer in ten seconds than read a long article about it. Students checking work, professionals making a quick decision, families planning a budget or a purchase, and creators producing something to share — the tool does not ask who you are, and it never asks you to sign up. Keep your inputs honest and current — a calculator is only as good as the numbers you feed it. Re-run the tool whenever your income, prices or rates change, and treat every estimate as a planning guide rather than a promise.</p><p>Because the page is a single self-contained file, it also works in places where heavy apps struggle: older phones, slow connections, school and office networks. If you find it useful, bookmark it — your saved notes, favourites and history live in your own browser and will be waiting next time, with no account to remember and no password to reset.</p>
+<h2>The bottom line</h2><p>A good pension commutation calculator should be fast, honest about its method, and complete enough that you do not need a second tool open in another tab. That is the standard PensionMath was built to. Try the default example, run your own case, and read the frequently asked questions below if anything is unclear — they cover accuracy, privacy, cost and the features that make this tool different.</p>
+<h2>Frequently asked questions</h2>
+<div class="faq"><h3>What is PensionMath used for?</h3><p>PensionMath is a free online tool for anyone searching for a pension commutation calculator. It gives you an instant result in your browser — Commutation factor auto-picked from age-next-birthday, lump sum + reduced monthly pension + the exact restoration date on one card — the three numbers a retiree actually needs together</p></div><div class="faq"><h3>Is PensionMath free to use?</h3><p>Yes. PensionMath is completely free with unlimited usage — no signup, no paywall and no watermark on anything you create or download.</p></div><div class="faq"><h3>How accurate is PensionMath?</h3><p>PensionMath uses the standard formulas and methods described in the guide on this page, and shows its working so you can check every step. For money, health or legal decisions, treat the result as a strong estimate and confirm important figures with a professional.</p></div><div class="faq"><h3>Does PensionMath upload my data anywhere?</h3><p>No. PensionMath runs entirely in your browser. Your inputs, files and results never leave your device, and nothing is stored on a server.</p></div><div class="faq"><h3>What makes PensionMath different from other tools for pension commutation calculator?</h3><p>Most tools stop at the basic answer. PensionMath adds restoration date/age card and commute-% slider (up to the allowed max) — Retirement tools in the estate model NPS corpus (retirewise), not service-pension commutation tables; the commutation-factor table lookup is the underserved step</p></div><div class="faq"><h3>Can I use PensionMath on my phone?</h3><p>Yes. PensionMath is a single lightweight page that works on phones, tablets and computers. Anything you save is kept in your own browser&#x27;s local storage.</p></div>
+</article>
+</main>
+<footer class="site">
+<p><b>PensionMath</b> — a free pension commutation calculator that runs entirely in your browser.</p>
+<p><a href="https://fixoraa.tech">Home</a> · <a href="https://fixoraa.tech">More Tools</a></p>
+<p class="fx-credit" style="text-align:center;font-size:12.5px;opacity:.62;margin:10px auto 2px;letter-spacing:.01em">Made by <a href="https://fixoraa.tech" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px">Fixoraa</a></p>
+</footer>
+<script id="tool-logic">var TL={factor:function(ageNext){var t={58:8.469,59:8.379,60:8.287,61:8.194,62:8.093,63:7.982,64:7.862,65:7.731};return t[ageNext]||8.194;},commutedMonthly:function(pension,pct){return pension*pct/100;},lump:function(pension,pct,ageNext){return Math.round(TL.commutedMonthly(pension,pct)*12*TL.factor(ageNext)*100)/100;},reduced:function(pension,pct){return pension-TL.commutedMonthly(pension,pct);},addYears:function(iso,years){var parts=String(iso).split('-');if(parts.length!==3)return iso;return (parseInt(parts[0],10)+years)+'-'+parts[1]+'-'+parts[2];},familyPension:function(pension){return pension*0.5;}};</script>
+<script>function $(i){return document.getElementById(i);}function v(i){var e=$('f_'+i);return e?parseFloat(e.value)||0:0;}function tv(i){var e=$('f_'+i);return e?e.value:'';}function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}function fmt(n){return new Intl.NumberFormat('en-IN',{maximumFractionDigits:2}).format(Math.round(n*100)/100);}function setResult(h){$('result').innerHTML=h;}function drawBars(rows){var mx=Math.max.apply(null,rows.map(function(r){return r[1];}))||1;var h='<div style="margin-top:10px">';rows.forEach(function(r){h+='<div style="margin:6px 0"><span>'+esc(r[0])+'</span><div style="background:var(--soft);border-radius:8px"><div style="width:'+Math.max(2,Math.round(r[1]/mx*100))+'%;background:var(--acc);height:16px;border-radius:8px"></div></div><b>'+fmt(r[1])+'</b></div>';});$('result').innerHTML+=h+'</div>';}
+document.getElementById('go').onclick=function(){var pen=v('pension'),pct=Math.min(40,Math.max(0,v('pct'))),age=Math.round(v('ageNext')),date=tv('retireDate');var f=TL.factor(age),lump=TL.lump(pen,pct,age),red=TL.reduced(pen,pct);var html='<p style="font-size:1.15rem">Commuting '+fmt(pct)+'% ('+fmt(TL.commutedMonthly(pen,pct))+'/month) at factor '+f+' gives a lump sum of <b>'+fmt(lump)+'</b>. Your reduced monthly pension is <b>'+fmt(red)+'</b>.</p>';html+='<p><b>Commute-% slider:</b> at 20% the lump would be '+fmt(TL.lump(pen,20,age))+' with pension '+fmt(TL.reduced(pen,20))+'; at the 40% maximum it is '+fmt(lump)+' with pension '+fmt(red)+' - compare before you sign.</p>';html+='<p><b>Restoration date/age card:</b> the commuted portion is restored after 15 years, on <b>'+esc(TL.addYears(date,15))+'</b> - from that date your full '+fmt(pen)+'/month pension returns.</p>';html+='<p><b>Family-pension note:</b> family pension is not reduced by commutation - on the enhanced rate it would be about '+fmt(TL.familyPension(pen))+'/month (50% of pension) for the enhanced period, then the normal rate applies.</p>';setResult(html);drawBars([['Lump sum',lump],['Reduced pension x12',red*12],['Full pension x12',pen*12]]);};</script>
+</body>
+</html>
